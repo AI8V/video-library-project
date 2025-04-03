@@ -1,30 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     const allVideos = [
-        { id: "odGTd-O3RO8", title: "فيديو تعليمي 1" },
-        { id: "CCiWWTHz-ZY", title: "فيديو تعليمي 2" },
-        { id: "r9OxY05qszE", title: "فيديو تعليمي 3" },
-        { id: "dQw4w9WgXcQ", title: "فيديو تعليمي 4" },
-        { id: "ZZ5LpwO-An4", title: "فيديو تعليمي 5" },
-        { id: "djV11Xbc914", title: "فيديو تعليمي 6" },
-        { id: "btPJPFnesV4", title: "فيديو تعليمي 7" },
-        { id: "YR5ApYxkU-U", title: "فيديو تعليمي 8" },
-        { id: "pAgnJDJN4VA", title: "فيديو تعليمي 9" },
-        { id: "fJ9rUzIMcZQ", title: "فيديو تعليمي 10" },
-        { id: "l0NtUxBnbzo", title: "فيديو تعليمي 11" },
-        { id: "EK_LN3XEcnw", title: "فيديو تعليمي 12" },
-        { id: "JGwWNGJdvx8", title: "فيديو تعليمي 13" },
-        { id: "kJQP7kiw5Fk", title: "فيديو تعليمي 14" },
-        { id: "RgKAFK5djSk", title: "فيديو تعليمي 15" },
-        { id: "U3ASj1L6_sY", title: "فيديو تعليمي 16" },
-        { id: "31CnPqxVZiw", title: "فيديو تعليمي 17" },
-        { id: "8SbUC-UaAxE", title: "فيديو تعليمي 18" },
-        { id: "YVkUvmDQ3HY", title: "فيديو تعليمي 19" },
-        { id: "6Ejga4kJUts", title: "فيديو تعليمي 20" },
-        { id: "ALZHF5UqnU4", title: "فيديو تعليمي 21" },
-        { id: "y6120QOlsfU", title: "فيديو تعليمي 22" },
-        { id: "aQUlA8Hcv4s", title: "فيديو تعليمي 23" },
-        { id: "vx2u5uUu3DE", title: "فيديو تعليمي 24" },
+        { id: "odGTd-O3RO8", title: "فيديو تعليمي 1", category: "رياضيات" },
+        { id: "CCiWWTHz-ZY", title: "فيديو تعليمي 2", category: "علوم" },
+        { id: "r9OxY05qszE", title: "فيديو تعليمي 3", category: "لغة عربية" },
+        { id: "dQw4w9WgXcQ", title: "فيديو تعليمي 4", category: "رياضيات" },
+        { id: "ZZ5LpwO-An4", title: "فيديو تعليمي 5", category: "علوم" },
+        { id: "djV11Xbc914", title: "فيديو تعليمي 6", category: "تاريخ" },
+        { id: "btPJPFnesV4", title: "فيديو تعليمي 7", category: "لغة عربية" },
+        { id: "YR5ApYxkU-U", title: "فيديو تعليمي 8", category: "رياضيات" },
+        { id: "pAgnJDJN4VA", title: "فيديو تعليمي 9", category: "تاريخ" },
+        { id: "fJ9rUzIMcZQ", title: "فيديو تعليمي 10", category: "علوم" },
+        { id: "l0NtUxBnbzo", title: "فيديو تعليمي 11", category: "لغة عربية" },
+        { id: "EK_LN3XEcnw", title: "فيديو تعليمي 12", category: "رياضيات" },
+        { id: "JGwWNGJdvx8", title: "فيديو تعليمي 13", category: "تاريخ" },
+        { id: "kJQP7kiw5Fk", title: "فيديو تعليمي 14", category: "علوم" },
+        { id: "RgKAFK5djSk", title: "فيديو تعليمي 15", category: "رياضيات" },
+        { id: "U3ASj1L6_sY", title: "فيديو تعليمي 16", category: "لغة عربية" },
+        { id: "31CnPqxVZiw", title: "فيديو تعليمي 17", category: "تاريخ" },
+        { id: "8SbUC-UaAxE", title: "فيديو تعليمي 18", category: "علوم" },
+        { id: "YVkUvmDQ3HY", title: "فيديو تعليمي 19", category: "رياضيات" },
+        { id: "6Ejga4kJUts", title: "فيديو تعليمي 20", category: "لغة عربية" },
+        { id: "ALZHF5UqnU4", title: "فيديو تعليمي 21", category: "تاريخ" },
+        { id: "y6120QOlsfU", title: "فيديو تعليمي 22", category: "علوم" },
+        { id: "aQUlA8Hcv4s", title: "فيديو تعليمي 23", category: "رياضيات" },
+        { id: "vx2u5uUu3DE", title: "فيديو تعليمي 24", category: "لغة عربية" },
     ];
+
+    // استخراج التصنيفات الفريدة من الفيديوهات
+    const categories = [...new Set(allVideos.map(video => video.category))];
 
     const videosContainer = document.querySelector('.videos-container');
     const paginationContainer = document.querySelector('.pagination');
@@ -36,14 +39,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const noResultsMessage = document.getElementById('noResultsMessage');
+    const categoriesContainer = document.getElementById('categoriesContainer');
 
     const videosPerPage = 8; 
     let currentPage = 1;
     let filteredVideos = [...allVideos]; // نسخة من جميع الفيديوهات
     let searchTerm = ''; // كلمة البحث الحالية
+    let activeCategory = 'all'; // التصنيف النشط حاليًا
+    
+    // إنشاء أزرار التصنيفات
+    function createCategoryButtons() {
+        // إنشاء زر "الكل"
+        const allButton = document.createElement('button');
+        allButton.className = 'btn btn-outline-primary me-2 mb-2 category-btn active';
+        allButton.textContent = 'الكل';
+        allButton.dataset.category = 'all';
+        categoriesContainer.appendChild(allButton);
+        
+        // إنشاء زر لكل تصنيف
+        categories.forEach(category => {
+            const button = document.createElement('button');
+            button.className = 'btn btn-outline-primary me-2 mb-2 category-btn';
+            button.textContent = category;
+            button.dataset.category = category;
+            categoriesContainer.appendChild(button);
+        });
+        
+        // إضافة حدث النقر على أزرار التصنيفات
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // إزالة الصنف النشط من جميع الأزرار
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // إضافة الصنف النشط للزر المحدد
+                button.classList.add('active');
+                
+                // تحديث التصنيف النشط
+                activeCategory = button.dataset.category;
+                
+                // تحديث القائمة
+                applyFilters();
+            });
+        });
+    }
     
     function getTotalPages() {
         return Math.ceil(filteredVideos.length / videosPerPage);
+    }
+
+    // تطبيق الفلاتر (البحث والتصنيف)
+    function applyFilters() {
+        // فلترة حسب كلمة البحث والتصنيف
+        if (activeCategory === 'all') {
+            // البحث فقط في جميع التصنيفات
+            if (searchTerm === '') {
+                filteredVideos = [...allVideos];
+            } else {
+                filteredVideos = allVideos.filter(video => 
+                    video.title.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+        } else {
+            // البحث في التصنيف المحدد
+            if (searchTerm === '') {
+                filteredVideos = allVideos.filter(video => 
+                    video.category === activeCategory
+                );
+            } else {
+                filteredVideos = allVideos.filter(video => 
+                    video.category === activeCategory && 
+                    video.title.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+        }
+        
+        // إعادة تعيين رقم الصفحة الحالية
+        currentPage = 1;
+        
+        // عرض النتائج
+        displayVideosForCurrentPage();
     }
 
     function displayVideosForCurrentPage() {
@@ -51,6 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const endIndex = Math.min(startIndex + videosPerPage, filteredVideos.length);
         const currentPageVideos = filteredVideos.slice(startIndex, endIndex);
 
+        // إضافة فئة التحميل
+        videosContainer.classList.add('loading');
+        
+        // إفراغ حاوية الفيديوهات
         videosContainer.innerHTML = '';
         
         // إظهار أو إخفاء رسالة عدم وجود نتائج
@@ -61,11 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
             noResultsMessage.classList.add('d-none');
             paginationContainer.classList.remove('d-none');
             
+            // إنشاء عناصر الفيديو للصفحة الحالية
             currentPageVideos.forEach((video) => {
                 const videoElement = createVideoElement(video);
                 videosContainer.appendChild(videoElement);
             });
         }
+
+        // محاكاة التحميل
+        setTimeout(() => {
+            videosContainer.classList.remove('loading');
+        }, 300);
 
         updatePagination();
     }
@@ -78,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         figure.className = 'figure video-thumb';
         figure.dataset.videoId = video.id;
         figure.dataset.videoTitle = video.title;
+        figure.dataset.videoCategory = video.category;
 
         const img = document.createElement('img');
         img.className = 'img-fluid figure-img';
@@ -104,16 +191,22 @@ document.addEventListener('DOMContentLoaded', () => {
             caption.textContent = video.title;
         }
 
+        // إضافة شارة التصنيف
+        const categoryBadge = document.createElement('span');
+        categoryBadge.className = 'badge bg-secondary category-badge';
+        categoryBadge.textContent = video.category;
+
         figure.appendChild(img);
         figure.appendChild(playButton);
         figure.appendChild(caption);
+        figure.appendChild(categoryBadge);
         colElement.appendChild(figure);
 
         figure.addEventListener('click', (e) => {
             e.preventDefault();
             modalIframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
             modalTitle.textContent = video.title;
-            modalDescription.textContent = `تشاهد الآن: ${video.title}`;
+            modalDescription.innerHTML = `تشاهد الآن: ${video.title} <span class="badge bg-secondary">${video.category}</span>`;
             modal.show();
         });
 
@@ -238,21 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.trim();
         searchTerm = query;
         
-        if (query === '') {
-            // إعادة تعيين القائمة إذا كان البحث فارغًا
-            filteredVideos = [...allVideos];
-        } else {
-            // فلترة الفيديوهات بناءً على كلمة البحث
-            filteredVideos = allVideos.filter(video => 
-                video.title.toLowerCase().includes(query.toLowerCase())
-            );
-        }
-        
-        // إعادة تعيين رقم الصفحة الحالية
-        currentPage = 1;
-        
-        // عرض النتائج
-        displayVideosForCurrentPage();
+        applyFilters();
     }
     
     // الاستماع لأحداث البحث
@@ -266,7 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // إضافة حدث لحقل البحث للبحث أثناء الكتابة (اختياري)
-    // عادة ما يُفضل تأخير هذا الإجراء لتجنب تحميل الصفحة بكثرة
     searchInput.addEventListener('input', () => {
         clearTimeout(searchInput.searchTimeout);
         searchInput.searchTimeout = setTimeout(performSearch, 500);
@@ -276,6 +354,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modalIframe.src = 'about:blank';
     });
 
+    // إنشاء أزرار التصنيفات
+    createCategoryButtons();
+    
     // عرض جميع الفيديوهات عند التحميل
     displayVideosForCurrentPage();
 });

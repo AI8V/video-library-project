@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-    <header class="container mt-4 mb-5">
+<body>    <header class="container mt-4 mb-5">
         <h1 class="text-center">مكتبة الفيديوهات التعليمية</h1>
         <p class="text-center text-muted">مجموعة من أفضل الفيديوهات التعليمية المختارة</p>
         <div class="row justify-content-center mt-4">
@@ -20,8 +19,21 @@
             </div>
         </div>
     </header>
+    
+    <div class="container">
+        <!-- قسم التصنيفات -->
+        <section class="categories-section">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h5 class="mb-3">تصفية حسب الموضوع:</h5>
+                    <div id="categoriesContainer" class="d-flex flex-wrap"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
     <div class="container my-5">
-        <div class="alert alert-info text-center d-none" role="alert" id="noResultsMessage"><span> لم يتم العثور على نتائج للبحث. يرجى تجربة كلمات مفتاحية أخرى. </span></div>
+        <div class="alert alert-info text-center d-none" role="alert" id="noResultsMessage"><span> لم يتم العثور على نتائج للبحث. يرجى تجربة كلمات مفتاحية أخرى أو تغيير التصنيف. </span></div>
         <div class="row text-center justify-content-center g-4 videos-container"></div>
         <nav aria-label="صفحات الفيديوهات" class="mt-5">
             <ul class="pagination justify-content-center"></ul>

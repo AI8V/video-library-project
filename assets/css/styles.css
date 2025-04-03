@@ -214,3 +214,61 @@ html {
   }
 }
 
+/* تنسيق أزرار التصنيفات */
+
+.categories-section {
+  margin-bottom: 2rem;
+}
+
+.category-btn {
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+}
+
+.category-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* تنسيق شارة التصنيف */
+
+.category-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.video-thumb:hover .category-badge {
+  background-color: rgba(0, 123, 255, 1);
+}
+
+/* تنسيق حاوية التصنيفات للشاشات الصغيرة */
+
+@media (max-width: 576px) {
+  .categories-section h5 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  #categoriesContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .category-btn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
