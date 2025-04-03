@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>مكتبة فيديوهات</title>
+    <meta name="description" content="مجموعة من أفضل الفيديوهات التعليمية المختارة">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -13,8 +14,14 @@
     <header class="container mt-4 mb-5">
         <h1 class="text-center">مكتبة الفيديوهات التعليمية</h1>
         <p class="text-center text-muted">مجموعة من أفضل الفيديوهات التعليمية المختارة</p>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="input-group"><input class="form-control form-control" type="text" aria-label="ابحث عن فيديو" id="searchInput" placeholder="ابحث عن فيديو..."><button class="btn btn-primary" type="button" id="searchButton"> بحث </button></div>
+            </div>
+        </div>
     </header>
     <div class="container my-5">
+        <div class="alert alert-info text-center d-none" role="alert" id="noResultsMessage"><span> لم يتم العثور على نتائج للبحث. يرجى تجربة كلمات مفتاحية أخرى. </span></div>
         <div class="row text-center justify-content-center g-4 videos-container"></div>
         <nav aria-label="صفحات الفيديوهات" class="mt-5">
             <ul class="pagination justify-content-center"></ul>

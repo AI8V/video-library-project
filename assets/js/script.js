@@ -33,22 +33,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalIframe = modalElement.querySelector('iframe');
     const modalTitle = modalElement.querySelector('.modal-title');
     const modalDescription = modalElement.querySelector('.modal-body p');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const noResultsMessage = document.getElementById('noResultsMessage');
 
     const videosPerPage = 8; 
     let currentPage = 1;
-    const totalPages = Math.ceil(allVideos.length / videosPerPage);
+    let filteredVideos = [...allVideos]; // نسخة من جميع الفيديوهات
+    let searchTerm = ''; // كلمة البحث الحالية
+    
+    function getTotalPages() {
+        return Math.ceil(filteredVideos.length / videosPerPage);
+    }
 
     function displayVideosForCurrentPage() {
         const startIndex = (currentPage - 1) * videosPerPage;
-        const endIndex = Math.min(startIndex + videosPerPage, allVideos.length);
-        const currentPageVideos = allVideos.slice(startIndex, endIndex);
+        const endIndex = Math.min(startIndex + videosPerPage, filteredVideos.length);
+        const currentPageVideos = filteredVideos.slice(startIndex, endIndex);
 
         videosContainer.innerHTML = '';
-
-        currentPageVideos.forEach((video) => {
-            const videoElement = createVideoElement(video);
-            videosContainer.appendChild(videoElement);
-        });
+        
+        // إظهار أو إخفاء رسالة عدم وجود نتائج
+        if (filteredVideos.length === 0) {
+            noResultsMessage.classList.remove('d-none');
+            paginationContainer.classList.add('d-none');
+        } else {
+            noResultsMessage.classList.add('d-none');
+            paginationContainer.classList.remove('d-none');
+            
+            currentPageVideos.forEach((video) => {
+                const videoElement = createVideoElement(video);
+                videosContainer.appendChild(videoElement);
+            });
+        }
 
         updatePagination();
     }
@@ -78,7 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const caption = document.createElement('figcaption');
         caption.className = 'figure-caption';
-        caption.textContent = video.title;
+        
+        // تمييز كلمة البحث في العنوان إذا كانت موجودة
+        if (searchTerm && video.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            caption.innerHTML = video.title.replace(regex, '<span class="highlight-match">$1</span>');
+        } else {
+            caption.textContent = video.title;
+        }
 
         figure.appendChild(img);
         figure.appendChild(playButton);
@@ -98,6 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updatePagination() {
         paginationContainer.innerHTML = '';
+        
+        const totalPages = getTotalPages();
+        
+        // إذا لم تكن هناك نتائج أو صفحة واحدة فقط، فلا نعرض التنقل بين الصفحات
+        if (filteredVideos.length === 0 || totalPages <= 1) {
+            return;
+        }
 
         const prevItem = document.createElement('li');
         prevItem.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
@@ -194,17 +225,57 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextButton = paginationContainer.querySelector('.page-item:last-child .page-link');
         nextButton.addEventListener('click', (e) => {
             e.preventDefault();
-            if (currentPage < totalPages) {
+            if (currentPage < getTotalPages()) {
                 currentPage++;
                 displayVideosForCurrentPage();
                 window.scrollTo(0, 0);
             }
         });
     }
+    
+    // وظيفة البحث
+    function performSearch() {
+        const query = searchInput.value.trim();
+        searchTerm = query;
+        
+        if (query === '') {
+            // إعادة تعيين القائمة إذا كان البحث فارغًا
+            filteredVideos = [...allVideos];
+        } else {
+            // فلترة الفيديوهات بناءً على كلمة البحث
+            filteredVideos = allVideos.filter(video => 
+                video.title.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+        
+        // إعادة تعيين رقم الصفحة الحالية
+        currentPage = 1;
+        
+        // عرض النتائج
+        displayVideosForCurrentPage();
+    }
+    
+    // الاستماع لأحداث البحث
+    searchButton.addEventListener('click', performSearch);
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch();
+        }
+    });
+    
+    // إضافة حدث لحقل البحث للبحث أثناء الكتابة (اختياري)
+    // عادة ما يُفضل تأخير هذا الإجراء لتجنب تحميل الصفحة بكثرة
+    searchInput.addEventListener('input', () => {
+        clearTimeout(searchInput.searchTimeout);
+        searchInput.searchTimeout = setTimeout(performSearch, 500);
+    });
 
     modalElement.addEventListener('hidden.bs.modal', () => {
         modalIframe.src = 'about:blank';
     });
 
+    // عرض جميع الفيديوهات عند التحميل
     displayVideosForCurrentPage();
 });

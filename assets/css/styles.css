@@ -72,6 +72,52 @@
   max-width: 100%;
 }
 
+/* تنسيق نموذج البحث */
+
+#searchInput {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding-right: 15px;
+  height: 45px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #80bdff;
+}
+
+#searchButton {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 45px;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* تنسيق رسالة عدم وجود نتائج */
+
+#noResultsMessage {
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/* تنسيق عند تفعيل خاصية البحث */
+
+.highlight-match {
+  background-color: rgba(255, 230, 0, 0.3);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
 /* تخصيص Pagination */
 
 .pagination {
@@ -153,6 +199,18 @@ html {
   .pagination .page-link {
     font-size: 0.85rem;
     padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #searchInput, #searchButton {
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  #searchButton {
+    padding: 0 15px;
   }
 }
 
