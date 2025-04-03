@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>مكتبة فيديوهات</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="container mt-4 mb-5">
+        <h1 class="text-center">مكتبة الفيديوهات التعليمية</h1>
+        <p class="text-center text-muted">مجموعة من أفضل الفيديوهات التعليمية المختارة</p>
+    </header>
+    <div class="container my-5">
+        <div class="row text-center justify-content-center g-4 videos-container"></div>
+        <nav aria-label="صفحات الفيديوهات" class="mt-5">
+            <ul class="pagination justify-content-center"></ul>
+        </nav>
+    </div>
+    <div class="modal fade text-center video-modal" role="dialog" tabindex="-1" dir="rtl">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" aria-label="إغلاق" data-bs-dismiss="modal" type="button"></button>
+                    <h4 class="ms-auto modal-title">عنوان الفيديو</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9"><iframe class="rounded" allowfullscreen=""></iframe></div>
+                    <p class="pb-0 mb-0 mt-0 pt-4">وصف الفيديو</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light container-fluid py-3 mt-5">
+        <div class="container text-center">
+            <p>جميع حقوق الطبع والنشر محفوظة © 2025</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
