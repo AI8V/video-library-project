@@ -53,8 +53,8 @@
 1. قم بتنزيل أو استنساخ المستودع:
 
 ```bash
-git clone https://github.com/your-username/arabic-videos-library.git
-cd arabic-videos-library
+git clone https://github.com/ai8v/video-library-project.git
+cd video-library-project
 ```
 
 2. افتح ملف `index.html` في متصفح الويب أو قم بتشغيل خادم محلي:
