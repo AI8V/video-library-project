@@ -3,7 +3,7 @@
 # مكتبة الفيديوهات التعليمية 📚🎥
 
   
-![لقطة شاشة للمشروع](https://github.com/AI8V/video-library-project.png)
+![لقطة شاشة للمشروع](https://github.com/AI8V/video-library-project/blob/main/video-library-project.png)
 
 [![لغة JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Bootstrap 5](https://img.shields.io/badge/-Bootstrap%205-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
@@ -22,7 +22,7 @@
 
 المشروع يقدم طريقة مبسطة لعرض قائمة من الفيديوهات التعليمية من YouTube مع تجربة مستخدم سلسة وحديثة، وذلك باستخدام تقنيات الويب القياسية مثل HTML5 وCSS3 وJavaScript بالإضافة إلى إطار العمل Bootstrap 5.
 
-![صورة توضيحية للمشروع](/api/placeholder/800/400)
+![صورة توضيحية للمشروع](https://github.com/AI8V/video-library-project/blob/main/ai8v-video-library-project.png)
 
 ## ✨ مميزات المشروع
 
