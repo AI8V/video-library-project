@@ -10,7 +10,7 @@
 [![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-[🔍 عرض المشروع](#مميزات-المشروع) | [🚀 تثبيت](#تثبيت-المشروع) | [💻 استخدام](#كيفية-الاستخدام) | [🔗 المساهمة](#المساهمة)
+[🔍 عرض المشروع](https://ai8v.github.io/video-library-project/) | [🚀 تثبيت](https://ai8v.github.io/video-library-project/) | [💻 استخدام](https://ai8v.github.io/video-library-project/) | [🔗 المساهمة](https://ai8v.github.io/video-library-project/)
 
 </div>
 
