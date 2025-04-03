@@ -3,7 +3,7 @@
 # مكتبة الفيديوهات التعليمية 📚🎥
 
   
-![لقطة شاشة للمشروع](https://img.shields.io/badge)
+![لقطة شاشة للمشروع](https://github.com/AI8V/video-library-project.png)
 
 [![لغة JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Bootstrap 5](https://img.shields.io/badge/-Bootstrap%205-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
